@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "extends": [
         "prettier",
@@ -23,6 +24,9 @@
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/state-in-constructor": "off",
         "import/no-extraneous-dependencies": "off",
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "comma-dangle": "off",
+        "object-curly-newline": "warn",
+        "operator-linebreak": ["warn", "after" ]
     }
 }
