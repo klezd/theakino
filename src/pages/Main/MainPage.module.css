@@ -1,0 +1,15 @@
+.root {
+  display: grid;
+  grid-template-rows: 40px 1fr 20px;
+}
+
+
+.container {
+  overflow-y: auto !important;
+  scrollbar-width: none;
+
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}

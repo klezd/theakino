@@ -4,9 +4,8 @@
         "es2021": true
     },
     "extends": [
-        "plugin:react/recommended",
-        "airbnb",
-        "prettier"
+        "prettier",
+        "airbnb"
     ],
     "parser": "babel-eslint",
     "parserOptions": {
@@ -17,11 +16,13 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react", "prettier"
+        "prettier"
     ],
     "rules": {
         "prettier/prettier": "warn",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "react/state-in-constructor": "off"
+        "react/state-in-constructor": "off",
+        "import/no-extraneous-dependencies": "off",
+        "no-unused-vars": "warn"
     }
 }

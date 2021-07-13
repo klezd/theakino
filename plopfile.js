@@ -161,7 +161,7 @@ module.exports = function(plop) {
           type: 'append',
           path: 'src/store/actionType.js',
           pattern: `// Add new Type here`,
-          template: `export const {{constantCase action}} = {{constantCase action}};`
+          template: `export const {{constantCase action}} = '{{constantCase action}}';`
         }
       ]
     });

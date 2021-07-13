@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import promise from 'redux-promise-middleware';
+import ReduxThunk from 'redux-thunk';
 /* Import reducers */
 import MovieReducer from './Movie/reducers.js';
 import UserReducer from './User/reducers';
