@@ -1,2 +1,16 @@
 .root {
+  padding: 12px
+}
+
+.section {
+
+}
+
+.title {
+  font-size: 1.3em;
+  color: #fafafa;
+  font-weight: 500;
+  padding: 0 0 12px;
+  margin-bottom: 12px;
+  text-align: left;
 }

@@ -1,0 +1,17 @@
+.root {
+  position: relative;
+}
+
+span.main {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 16px;
+  text-align: center !important;
+  color: rgba(256, 256, 256, 1)
+}
+
+@media screen and (max-width: 712px) {
+  span.main {
+    font-size: 20px;
+  }
+}

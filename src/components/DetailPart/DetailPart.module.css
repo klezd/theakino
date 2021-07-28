@@ -1,0 +1,28 @@
+.root {
+  margin: 8px 0;
+}
+
+span.main {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 16px;
+  text-align: center !important;
+  color: rgba(256, 256, 256, 1)
+}
+
+.viewAll {
+  text-align: right;
+  padding: 6px 8px;
+  width: max-content;
+  float: right;
+}
+
+.viewAll:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 712px) {
+  span.main {
+    font-size: 20px;
+  }
+}

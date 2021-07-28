@@ -1,13 +1,7 @@
 import React from 'react';
 import styles from './ErrorPage.module.css';
-import { RootState } from '../../store';
 
-const ErrorPage = (props) => {
-return (
-<div className={styles.root}>
-</div>
-)
-}
+const ErrorPage = (props) => <div className={styles.root} />;
 ErrorPage.defaultProps = {};
 
 ErrorPage.propTypes = {};

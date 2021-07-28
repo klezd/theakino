@@ -1,13 +1,62 @@
+
 .root {
-  display: grid;
-  grid-template-rows: 40px 1fr 20px;
+  min-height: 100vh;
 }
 
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 65px;
+  justify-content: space-between;
+  padding:12px;
+  color: rgb(256,256,256);
+  z-index: 10;
+}
+
+.container {
+  margin-top: 65px;
+  /* margin-bottom: 30px; */
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+}
+
+.leftHeader, .rightHeader {
+  display: flex;
+}
+
+.leftHeader {
+  font-size: 24px;
+}
+
+.leftHeader > div {
+  margin-left: 8px;
+  margin-right: 12px;
+  padding: 4px 8px;
+}
+
+.logo {
+  font-family: 'Frijole', cursive;
+}
+
+
+.headerBtn:hover {
+  box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.1);
+  border-radius: 10%;
+  cursor: pointer;
+}
 
 .container {
   overflow-y: auto !important;
   scrollbar-width: none;
-
 }
 
 .container::-webkit-scrollbar {

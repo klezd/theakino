@@ -20,4 +20,18 @@ code {
 div {
   box-sizing: border-box !important;
   overflow: hidden !important;
+  scrollbar-width: none !important;
+}
+
+div::-webkit-scrollbar {
+  display: none !important;
+}
+
+img.avatar::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-image: url("https://flyclipart.com/human-human-avatar-male-icon-with-png-and-vector-format-for-free-male-icon-png-19807");
 }

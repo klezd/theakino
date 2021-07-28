@@ -1,0 +1,32 @@
+.root {
+  margin: 8px 0;
+}
+
+.videoContainer {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  scrollbar-width: none;
+}
+
+.videoContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.videoContainer > div{
+  margin: 12px;
+}
+
+@media screen and (min-width: 1620px) {
+  .videoContainer {
+    margin-top: 12px;
+    display: block;
+    overflow-x: auto !important;
+    white-space : nowrap; 
+  }
+
+  .videoContainer > div {
+    display: inline-block;
+    width: 400px;
+  }  
+}
