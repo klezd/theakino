@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import promise from 'redux-promise-middleware';
 import ReduxThunk from 'redux-thunk';
 /* Import reducers */
+import TvShowsReducer from './TvShows/reducers.js';
 import UserReducer from './User/reducers.js';
 import MovieReducer from './Movie/reducers.js';
 
@@ -9,7 +10,8 @@ const isDevEnv = window.location.href.includes('localhost');
 
 const rootReducer = combineReducers({
   /** combine reducer */
-user: UserReducer,
+	tv: TvShowsReducer,
+	user: UserReducer,
 	movie: MovieReducer,
   user: UserReducer
 })

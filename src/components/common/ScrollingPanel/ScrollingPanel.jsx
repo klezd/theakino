@@ -12,18 +12,18 @@ import MoviePoster from './MoviePoster';
 import TVPoster from './TVPoster';
 import CastList from './CastList';
 
-const ScrollingPanel = (props) => {
-  const {
-    items,
-    loading,
-    autoScroll,
-    onClickItem,
-    onClickExtra,
-    type,
-    withViewMore,
-    showItems,
-    whiteText
-  } = props;
+const ScrollingPanel = ({
+  items,
+  loading,
+  autoScroll,
+  onClickItem,
+  onClickExtra,
+  type,
+  withViewMore,
+  showItems,
+  whiteText,
+  viewAllAsBtn
+}) => {
   const rootStyle = !autoScroll
     ? [styles.root, styles.manualScrollRoot].join(' ')
     : styles.root;
@@ -96,7 +96,7 @@ const ScrollingPanel = (props) => {
                 />
               );
             })}
-          {withViewMore && onClickExtra && (
+          {withViewMore && onClickExtra && !viewAllAsBtn && (
             <div
               className={extraItem}
               aria-hidden
@@ -109,6 +109,15 @@ const ScrollingPanel = (props) => {
             </div>
           )}
         </div>
+        {viewAllAsBtn && (
+          <div
+            className={styles.bottomBtn}
+            aria-hidden
+            onClick={() => onClickExtra()}
+          >
+            View All
+          </div>
+        )}
       </div>
     );
   }
@@ -129,7 +138,8 @@ ScrollingPanel.defaultProps = {
   withViewMore: false,
   type: 'movie',
   showItems: 5,
-  whiteText: false
+  whiteText: false,
+  viewAllAsBtn: false
 };
 
 ScrollingPanel.propTypes = {
@@ -141,7 +151,8 @@ ScrollingPanel.propTypes = {
   withViewMore: PropTypes.bool,
   type: PropTypes.oneOf(['movie', 'people', 'tv']),
   showItems: PropTypes.number,
-  whiteText: PropTypes.bool
+  whiteText: PropTypes.bool,
+  viewAllAsBtn: PropTypes.bool
 };
 
 export default ScrollingPanel;

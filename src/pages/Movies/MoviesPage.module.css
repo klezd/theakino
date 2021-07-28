@@ -3,6 +3,7 @@
   width: 100%;
   font-weight: 500;
   padding: 12px;
+  text-transform: capitalize;
 }
 
 .pageContainer {

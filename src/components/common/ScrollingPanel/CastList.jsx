@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ImageBaseUri } from '../../../utils';
+import { addDefaultSrc, ImageBaseUri } from '../../../utils';
 
 import styles from './styles.module.css';
 
@@ -33,6 +33,7 @@ const CastList = ({ item, onClickPeople }) => {
       <img
         src={`${ImageBaseUri}/w185/${profile_path.slice(1)}`}
         alt={original_name}
+        onError={addDefaultSrc}
         className="avatar"
       />
       <div className={styles.description}>

@@ -9,7 +9,7 @@ import {
 const initialState = {
   // Add here your init state
   movies: {
-    toprated: {
+    top_rated: {
       loading: false,
       data: [],
       err: null

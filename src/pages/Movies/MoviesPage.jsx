@@ -66,7 +66,7 @@ const MoviesPage = () => {
         {set === 'recommendations' && movieName ? (
           <>{`Recommendations for  ${movieName}`}</>
         ) : (
-          <>{set}</>
+          <>{set.replaceAll('_', ' ')}</>
         )}
       </div>
       <div className={styles.pageContainer}>

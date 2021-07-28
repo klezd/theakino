@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import styles from './ReviewBubble.module.css';
 
-import { ImageBaseUri } from '../../utils';
+import { addDefaultSrc, ImageBaseUri } from '../../utils';
 import { formatDate } from '../../utils/time';
 
 import Loading from '../common/Loading/Loading';
@@ -44,6 +44,7 @@ const ReviewBubble = ({ item, whiteText, textLength }) => {
           src={`${ImageBaseUri}/original/${author_details.avatar_path.slice(
             1
           )}`}
+          onError={addDefaultSrc}
           alt={author}
           className="avatar"
         />

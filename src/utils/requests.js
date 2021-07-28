@@ -1,13 +1,15 @@
 /* eslint-disable import/prefer-default-export */
+export const TheMovieDBBaseUri = 'https://api.themoviedb.org/3';
 
-import axios from 'axios';
-import { TheMovieDBBaseUri } from './index';
+export const themoviedbAPIKey = process.env.REACT_APP_THE_MOVIEDB_API_KEY;
 
-const themoviedbAPIKey = process.env.REACT_APP_THE_MOVIEDB_API_KEY;
+export const infosDir = [
+  { endpoint: 'videos', key: 'videos' },
+  { endpoint: 'recommendations', key: 'recommendations' },
+  { endpoint: 'watch/providers', key: 'providers' },
+  { endpoint: 'credits', key: 'credits' },
+  { endpoint: 'reviews', key: 'reviews' }
+];
 
-export const getMovieRequest = (set) => {
-  const req = axios.get(`${TheMovieDBBaseUri}/movie/${set}`, {
-    params: { api_key: themoviedbAPIKey, language: 'en-US' }
-  });
-  return req;
-};
+export const TVSetArray = ['popular', 'on_the_air', 'top_rated'];
+export const MovieSetArray = ['now_playing', 'top_rated', 'upcoming'];
