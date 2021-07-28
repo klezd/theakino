@@ -1,82 +1,98 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import TabContext from '@material-ui/lab/TabContext';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import TabPanel from '@material-ui/lab/TabPanel';
-import Paper from '@material-ui/core/Paper';
-
 import { useHistory } from 'react-router-dom';
 
 import { getMoviesAllSet } from '../../store/Movie/action';
-import ScrollingPanel from '../../components/common/ScrollingPanel/ScrollingPanel';
-import styles from './DashboardPage.module.css';
+import { getTVAllSet } from '../../store/TvShows/action';
 
-const DashboardPage = (props) => {
+import styles from './DashboardPage.module.css';
+import ItemCollections from '../../components/ItemCollections/ItemCollections';
+
+const DashboardPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const movieState = useSelector((s) => s.movie.movies);
-  const [tab, setTab] = React.useState(0);
+  const TVState = useSelector((s) => s.tv.allShows);
+  const [movieList, setMovieList] = React.useState([]);
+  const [TVList, setTVList] = React.useState([]);
+
   React.useEffect(() => {
     dispatch(getMoviesAllSet());
+    dispatch(getTVAllSet());
   }, []);
 
-  const handleChange = (e, tabIndex) => {
-    setTab(tabIndex);
-  };
+  React.useEffect(() => {
+    if (Object.keys(movieState).length === 3) {
+      const list = [];
+
+      Object.keys(movieState).map((key) => {
+        const movieSet = movieState[key];
+        if (movieSet) {
+          return list.push({
+            set: key,
+            data: movieSet.data.results,
+            loading: movieSet.loading
+          });
+        }
+        return null;
+      });
+      setMovieList(list);
+    }
+  }, [movieState]);
+
+  React.useEffect(() => {
+    if (Object.keys(TVState).length === 3) {
+      const list = [];
+
+      Object.keys(TVState).map((key) => {
+        const TVSet = TVState[key];
+        if (TVSet) {
+          return list.push({
+            set: key,
+            data: TVSet.data.results,
+            loading: TVSet.loading
+          });
+        }
+        return null;
+      });
+      setTVList(list);
+    }
+  }, [TVState]);
 
   const openMovie = (id) => {
     history.push(`/movie/${id}`);
   };
 
+  const openTV = (id) => {
+    history.push(`/TV/${id}`);
+  };
+
   const openMoviesSet = (set) => {
     history.push(`/movies/${set}`);
+  };
+  const openTVSet = (set) => {
+    history.push(`/TVs/${set}`);
   };
 
   return (
     <div className={styles.root}>
       <div className={[styles.section, styles.movie]}>
         <div className={styles.title}>Feature Movies</div>
-        <TabContext value={tab}>
-          <Paper elevation={3}>
-            <Tabs
-              value={tab}
-              onChange={handleChange}
-              indicatorColor="primary"
-              textColor="primary"
-              variant="scrollable"
-              scrollButtons="auto"
-            >
-              <Tab label="Now Playing" />
-              <Tab label="Upcoming" />
-            </Tabs>
-            <TabPanel value={0}>
-              {movieState && movieState.now_playing && (
-                <ScrollingPanel
-                  items={movieState.now_playing.data.results}
-                  loading={movieState.now_playing.loading}
-                  onClickItem={openMovie}
-                  showItems={10}
-                  withViewMore
-                  onClickExtra={() => openMoviesSet('now_playing')}
-                />
-              )}
-            </TabPanel>
-            <TabPanel value={1}>
-              {movieState && movieState.upcoming && (
-                <ScrollingPanel
-                  items={movieState.upcoming.data.results}
-                  loading={movieState.upcoming.loading}
-                  onClickItem={openMovie}
-                  showItems={10}
-                  withViewMore
-                  onClickExtra={() => openMoviesSet('upcoming')}
-                />
-              )}
-            </TabPanel>
-          </Paper>
-        </TabContext>
+        <ItemCollections
+          collections={movieList}
+          onClickItem={openMovie}
+          onClickOpenAll={openMoviesSet}
+        />
+      </div>
+      <div className={[styles.section, styles.tv]}>
+        <div className={styles.title}>Feature TV Shows</div>
+        <ItemCollections
+          collections={TVList}
+          onClickItem={openTV}
+          onClickOpenAll={openTVSet}
+          type="tv"
+        />
       </div>
     </div>
   );
