@@ -8,6 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Dashboard from '../Dashboard';
 import MovieDetail from '../MovieDetail';
 import Movies from '../Movies';
+import ShowDetail from '../ShowDetail';
+import Detail from '../Detail';
+import TVs from '../TVs';
 import Credits from '../CreditsList';
 import Review from '../Review';
 import Error from '../Error';
@@ -54,8 +57,12 @@ const MainPage = () => {
         <Switch>
           <Route path="/" exact component={Dashboard} />
           <Route path="/movie/:id" exact component={MovieDetail} />
+          {/* <Route path="/TV/:id" exact component={ShowDetail} /> */}
+          <Route path="/:media/:id" exact component={Detail} />
           <Route path="/movies/:set" exact component={Movies} />
+          <Route path="/TVs/:set" exact component={TVs} />
           <Route path="/movies/:set/:movieInfo" exact component={Movies} />
+          <Route path="/TVs/:set/:TVInfo" exact component={TVs} />
           <Route
             path="/movie/:movieId/:title/credits"
             exact

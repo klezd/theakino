@@ -80,6 +80,7 @@ export const getTVShowInfo = (id, endpoint, key) => (dispatch) => {
 };
 
 export const getTVShowById = (id) => (dispatch) => {
+  console.count('get show id ');
   dispatch({
     type: `${GET_TV_SHOW_BY_ID}_${ActionType.Pending}`,
     payload: { id }
@@ -90,13 +91,15 @@ export const getTVShowById = (id) => (dispatch) => {
   });
   req
     .then((val) => {
-      infosDir.map((i) => dispatch(getTVShowById(id, i.endpoint, i.key)));
+      console.count('success');
+      infosDir.map((i) => dispatch(getTVShowInfo(id, i.endpoint, i.key)));
       dispatch({
         type: `${GET_TV_SHOW_BY_ID}_${ActionType.Fulfilled}`,
         payload: { data: val.data, id }
       });
     })
     .catch((e) => {
+      console.count('fail ');
       dispatch({
         type: `${GET_TV_SHOW_BY_ID}_${ActionType.Rejected}`,
         payload: { err: e.message, id }

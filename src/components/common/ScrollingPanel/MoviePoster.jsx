@@ -34,10 +34,7 @@ const MoviePoster = ({ item, onClickPoster, whiteText }) => {
       aria-hidden="true"
     >
       <div className={styles.img}>
-        <img
-          src={`${ImageBaseUri}/w300/${poster_path.slice(1)}`}
-          alt={original_title}
-        />
+        <img src={`${ImageBaseUri}/w300${poster_path}`} alt={original_title} />
       </div>
       <div className={desStyle}>
         <div className={styles.title}>{title}</div>

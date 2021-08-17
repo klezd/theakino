@@ -89,7 +89,7 @@ const MoviesPage = () => {
             >
               <div className={styles.poster}>
                 <img
-                  src={`${ImageBaseUri}/w300/${poster_path.slice(1)}`}
+                  src={`${ImageBaseUri}/w300${poster_path}`}
                   alt={original_title}
                 />
               </div>

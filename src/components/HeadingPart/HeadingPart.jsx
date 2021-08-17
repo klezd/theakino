@@ -25,8 +25,10 @@ const HeadingPart = ({ item, media }) => {
     poster_path,
     genres,
     title,
+    name,
     original_language,
     original_title,
+    original_name,
     overview,
     vote_average,
     production_countries,
@@ -49,29 +51,29 @@ const HeadingPart = ({ item, media }) => {
     >
       <div className={styles.headBox}>
         <div className={styles.heading}>
-          <img
-            src={`${ImageBaseUri}/original/${backdrop_path.slice(1)}`}
-            alt={title}
-          />
+          {backdrop_path !== null ? (
+            <img src={`${ImageBaseUri}/original${backdrop_path}`} alt={title} />
+          ) : (
+            <img src={`${ImageBaseUri}/original/${backdrop_path}`} alt="" />
+          )}
         </div>
 
         <div className={styles.poster}>
-          <img
-            src={`${ImageBaseUri}/w300/${poster_path.slice(1)}`}
-            alt={title}
-          />
+          <img src={`${ImageBaseUri}/w300${poster_path}`} alt={title} />
         </div>
 
         <div className={styles.titleBox}>
           <div className={styles.title}>
-            <div className={styles.main}>{title}</div>
+            <div className={styles.main}>
+              {media === 'movie' ? title : name}
+            </div>
             {adult && <div className={styles.sub}>18+</div>}
           </div>
           {original_title && original_title !== title && (
             <div className={styles.subTitle}>
               &lang;&lang; Original name: &nbsp;
               <span className={styles.main} style={{ fontWeight: 500 }}>
-                {original_title}
+                {media === 'movie' ? original_title : original_name}
               </span>
               &nbsp;&rang;&rang;
             </div>

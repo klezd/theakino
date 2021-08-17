@@ -9,14 +9,8 @@ import { ImageBaseUri } from '../../../utils';
 import styles from './styles.module.css';
 
 const TVPoster = ({ item, onClickPoster, whiteText }) => {
-  const {
-    original_title,
-    title,
-    original_language,
-    poster_path,
-    overview,
-    id
-  } = item;
+  const { original_name, name, original_language, poster_path, overview, id } =
+    item;
 
   const desStyle = whiteText
     ? [styles.whiteText, styles.description].join(' ')
@@ -29,18 +23,18 @@ const TVPoster = ({ item, onClickPoster, whiteText }) => {
   return (
     <div
       className={[styles.item, styles.movie].join(' ')}
-      id={`movie_poster_${original_title}_${original_language}_${id}`}
+      id={`movie_poster_${original_name}_${original_language}_${id}`}
       onClick={() => onClickItem(id)}
       aria-hidden="true"
     >
       <div className={styles.img}>
         <img
-          src={`${ImageBaseUri}/w300/${poster_path.slice(1)}`}
-          alt={original_title}
+          src={`${ImageBaseUri}/w300${poster_path}`}
+          alt={original_name}
         />
       </div>
       <div className={desStyle}>
-        <div className={styles.title}>{title}</div>
+        <div className={styles.title}>{name}</div>
         <div className={styles.shortview}>{overview}</div>
         <div className={styles.button}>View more</div>
       </div>

@@ -77,7 +77,7 @@ const DashboardPage = () => {
 
   return (
     <div className={styles.root}>
-      <div className={[styles.section, styles.movie]}>
+      <div className={[styles.section, styles.movie].join(' ')}>
         <div className={styles.title}>Feature Movies</div>
         <ItemCollections
           collections={movieList}
@@ -85,7 +85,7 @@ const DashboardPage = () => {
           onClickOpenAll={openMoviesSet}
         />
       </div>
-      <div className={[styles.section, styles.tv]}>
+      <div className={[styles.section, styles.tv].join(' ')}>
         <div className={styles.title}>Feature TV Shows</div>
         <ItemCollections
           collections={TVList}

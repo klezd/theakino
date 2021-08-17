@@ -31,7 +31,7 @@ const CastList = ({ item, onClickPeople }) => {
       aria-hidden="true"
     >
       <img
-        src={`${ImageBaseUri}/w185/${profile_path.slice(1)}`}
+        src={`${ImageBaseUri}/w185${profile_path}`}
         alt={original_name}
         onError={addDefaultSrc}
         className="avatar"

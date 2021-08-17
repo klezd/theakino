@@ -41,9 +41,7 @@ const ReviewBubble = ({ item, whiteText, textLength }) => {
     <div className={rootStyle}>
       <div className={styles.avatar}>
         <img
-          src={`${ImageBaseUri}/original/${author_details.avatar_path.slice(
-            1
-          )}`}
+          src={`${ImageBaseUri}/original${author_details.avatar_path}`}
           onError={addDefaultSrc}
           alt={author}
           className="avatar"
