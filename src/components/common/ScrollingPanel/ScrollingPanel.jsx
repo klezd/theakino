@@ -89,7 +89,10 @@ const ScrollingPanel = ({
               return (
                 <CastList
                   key={`people_${original_name}_${id}`}
-                  onClickPeople={() => onClickItem(id)}
+                  // onClickPeople={() => onClickItem(id)}
+                  onClickPeople={() => {
+                    console.log('onClickItem(id)');
+                  }}
                   aria-hidden="true"
                   item={i}
                   whiteText={whiteText}

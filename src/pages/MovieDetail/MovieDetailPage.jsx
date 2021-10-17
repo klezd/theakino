@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable camelcase */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,9 +38,10 @@ const MovieDetailPage = () => {
   const onViewAllReviews = (i, title) => {
     history.push(`/movie/${i}/${title}/reviews`);
   };
-  const onViewAllCredits = (i, title) => {
-    history.push(`/movie/${i}/${title}/credits`);
-  };
+
+  const onViewAllCredits = (i, title) =>
+    alert('Credits List is not available at this time');
+  // history.push(`/movie/${i}/${title}/credits`);
 
   React.useEffect(() => {
     dispatch(getMovieById(id));

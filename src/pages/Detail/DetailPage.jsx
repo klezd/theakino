@@ -51,8 +51,10 @@ const DetailPage = () => {
     }
   };
 
-  const openPeople = (i) => history.push(`/people/${i}`);
-
+  const openPeople = (i) => {
+    alert('');
+    history.push(`/people/${i}`);
+  };
   const onViewAllReviews = (i, title) => {
     if (media === 'movie') {
       history.push(`/movie/${i}/${title}/reviews`);
@@ -61,11 +63,13 @@ const DetailPage = () => {
     }
   };
   const onViewAllCredits = (i, title) => {
-    if (media === 'movie') {
-      history.push(`/movie/${i}/${title}/credits`);
-    } else {
-      history.push(`/TV/${i}/${title}/credits`);
-    }
+    alert('Credits List is not available at this time');
+    // TODO remove when adding credits list page
+    // if (media === 'movie') {
+    //   history.push(`/movie/${i}/${title}/credits`);
+    // } else {
+    //   history.push(`/TV/${i}/${title}/credits`);
+    // }
   };
 
   console.count(media);

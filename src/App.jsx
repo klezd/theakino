@@ -15,7 +15,8 @@ import {
   faBars,
   faAngleRight,
   faAngleLeft,
-  faArrowRight
+  faArrowRight,
+  faCopyright
 } from '@fortawesome/free-solid-svg-icons';
 
 import MainPage from './pages/Main';
@@ -36,7 +37,8 @@ library.add(
   faBars,
   faAngleRight,
   faAngleLeft,
-  faArrowRight
+  faArrowRight,
+  faCopyright
 );
 
 function App() {

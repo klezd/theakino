@@ -2,7 +2,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ImageBaseUri } from '../../../utils';
 
@@ -28,10 +27,7 @@ const TVPoster = ({ item, onClickPoster, whiteText }) => {
       aria-hidden="true"
     >
       <div className={styles.img}>
-        <img
-          src={`${ImageBaseUri}/w300${poster_path}`}
-          alt={original_name}
-        />
+        <img src={`${ImageBaseUri}/w300${poster_path}`} alt={original_name} />
       </div>
       <div className={desStyle}>
         <div className={styles.title}>{name}</div>

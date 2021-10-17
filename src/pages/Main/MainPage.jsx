@@ -19,6 +19,7 @@ import styles from './MainPage.module.css';
 
 import theme from '../../utils/theme';
 
+const today = new Date();
 const MainPage = () => {
   const history = useHistory();
   const onClickMenuBtn = () => {};
@@ -76,7 +77,12 @@ const MainPage = () => {
           <Route component={Error} />
         </Switch>
       </div>
-      <div className={styles.footer}>Footer</div>
+      <div className={styles.footer}>
+        Theakino &nbsp;
+        <FontAwesomeIcon icon="copyright" />
+        &nbsp;
+        {today.getFullYear()}
+      </div>
     </div>
   );
 };

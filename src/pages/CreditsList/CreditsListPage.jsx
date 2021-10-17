@@ -16,7 +16,7 @@ const CreditsListPage = () => {
     dispatch(getMovieInfoById(movieId, 'credits', 'credits'));
   }, [movieId]);
 
-  return <div className={styles.root}>CreditsListPage</div>;
+  return <div className={styles.root}>The list is on updating</div>;
 };
 
 export default CreditsListPage;
