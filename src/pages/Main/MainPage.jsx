@@ -56,6 +56,7 @@ const MainPage = () => {
 
       <div className={styles.container}>
         <Switch>
+          {/* TODO Rewrite routing and components */}
           <Route path="/" exact component={Dashboard} />
           <Route path="/movie/:id" exact component={MovieDetail} />
           {/* <Route path="/TV/:id" exact component={ShowDetail} /> */}
